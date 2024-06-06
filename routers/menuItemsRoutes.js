@@ -27,18 +27,5 @@ router.get('/', async(req,res) => {
   }
 })
 
-router.get('/:foodName', async (req,res) => {
-  try {
-    const foodName = req.params.foodName;
-    if(foodName == 'pizza' || foodName == 'sandwich', foodName == 'dosa'){
-      const data = await menuItems.find({name: foodName});
-      res.status(200).json(data);
-      console.log("data fetched");
-    } 
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({error: 'internal error'}); 
-  }
-})
 
 module.exports = router;
