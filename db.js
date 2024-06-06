@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 // define the MongoDB connection URL and Database name
-const mongoURL = 'mongodb://localhost:27017/hotels';
+// const mongoURL = process.env.DB_URL_LOCAL; // Local db 
+const mongoURL = process.env.DB_URL; // online db of atlas
 
 // setup the mongoDB connection
 mongoose.connect(mongoURL, {
@@ -16,6 +18,8 @@ const db = mongoose.connection;
 db.on('connected',() => {
   console.log('Connected to MongoDB server');
 });
+
+
 
 db.off('disconnected',() => {
   console.log('MongoDB disconnected');

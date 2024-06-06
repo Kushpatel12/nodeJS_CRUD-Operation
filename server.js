@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const db = require('./db');
+require('dotenv').config();
 
 // take data from client which will send fom frontend give it to server (express js)
 const bodyParser = require('body-parser');
@@ -17,4 +18,6 @@ app.use('/person',personRoutes);
 app.use('/menu',menuItems);
 app.use('/customer',customerInfo);
 
-app.listen(3000);
+// from ENV file
+const PORT = process.env.PORT || 3000;
+app.listen(PORT);
