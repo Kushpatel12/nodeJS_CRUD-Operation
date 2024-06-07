@@ -19,5 +19,5 @@ app.use('/menu',menuItems);
 app.use('/customer',customerInfo);
 
 // from ENV file
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4200;
 app.listen(PORT);
